@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Figuras MR Anime</title>
+    <link rel="stylesheet" href="css/normalize.css">
+    <link href="https://fonts.googleapis.com/css2?family=Staatliches&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="shortcut icon" href="img2/icono.ico">
+</head>
+
+<body>
+    <header class="header">
+        <a href="index.php">
+            <img class="header__logo" src="img2/LogoAnime.png" alt="Logotipo">
+        </a>
+    </header>
+
+    <nav class="navegacion">
+        <a class="navegacion__enlace navegacion__enlace--activo" href="index.php">Tienda</a>
+        <a class="navegacion__enlace" href="nosotros.html">Nosotros</a>
+        <a class="navegacion__enlace" href="login.html">Login</a>
+        <a class="navegacion__enlace" href="cerrarSesion.php">Salir</a>
+    </nav>
+
+    <main class="contenedor">
+        <h1 class="contenedor__texto">Figura Anime de Deku</h1>
+        <div class="figura">
+            <img class="figura__imagen" src="img2/FigDeku.jpg" alt="imagenProducto">
+
+            <div class="figura__contenido">
+                <p> Figura de Deku basado en el personaje del anime My Hero Academia. <br>
+                    Fabricante: Good Smile Company. <br>
+                    Línea: Plastic Model Kit <br>
+                    Franquicia: My Hero Academia <br>
+                    Personaje: Deku <br>
+                    Altura: 6" <br>
+                    Articulada: Sí <br>
+                    Edad mínima recomendada: 15 años
+                </p>
+
+                <form class="formulario" name="form1" action="comprar.html" method="post">
+                    <input class="formulario__campo" name="cantidad" type="number" placeholder="Cantidad: "
+                    onclick="setPrecio(), setProducto()" min="1" required>
+                    <p class="mensaje__precio">1000$ MXN</p>
+                    <input class="formulario__submit" type="submit" value="Comprar" onclick="saveProducto()">
+                </form>
+                <br>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <p class="footer__texto">Figuras MR Anime - Todos los derechos Reservados 2022</p>
+    </footer>
+    <script src="js/script.js"></script>
+</body>
+
+</html>

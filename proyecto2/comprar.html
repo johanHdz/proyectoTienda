@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Figuras MR Anime</title>
+    <link rel="stylesheet" href="css/normalize.css">
+    <link href="https://fonts.googleapis.com/css2?family=Staatliches&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="shortcut icon" href="img2/icono.ico">
+</head>
+
+<body>
+    <script src="js/script.js"></script>
+    <script>
+        var objeto = JSON.parse(localStorage.getItem('data'));
+        console.log(objeto);
+        localStorage.clear();
+    </script>
+
+    <header class="header">
+        <a href="index.php">
+            <img class="header__logo" src="img2/LogoAnime.png" alt="Logotipo">
+        </a>
+    </header>
+
+    <nav class="navegacion">
+        <a class="navegacion__enlace navegacion__enlace--activo" href="index.php">Tienda</a>
+        <a class="navegacion__enlace" href="nosotros.html">Nosotros</a>
+        <a class="navegacion__enlace" href="login.html">Login</a>
+        <a class="navegacion__enlace" href="cerrarSesion.php">Salir</a>
+    </nav>
+
+    <div>
+        <form class="pago" name="formularioPago" onsubmit="return validarPago()" action="comprar.php" method="post">
+            <h1 class="mensaje__titulo">Resumen de la compra</h1>
+            <div class="figura__contenido">
+                <p class="mensaje__compra">Producto:</p> <input class="resumen" type="text" name="nombre" value=""
+                    readonly>
+                <p class="mensaje__compra">Cantidad:</p> <input class="resumen" type="text" name="cant" readonly>
+                <p class="mensaje__compra">Total a pagar:</p> <input class="resumen" type="text" name="costo"
+                    style="margin-bottom:20px;" readonly>
+                <script>
+                    const prod = document.formularioPago.nombre;
+                    const cant = document.formularioPago.cant;
+                    const costo = document.formularioPago.costo;
+
+                    prod.value = objeto.nombreProducto;
+                    cant.value = objeto.cantidad;
+                    costo.value = objeto.precio * objeto.cantidad + "$ MXN";
+                </script>
+            </div>
+            <h3 class="pago__texto">Información de la tarjeta</h3>
+            <input class="pago__num" name="numTarjeta" placeholder="Número de tarjeta" type="text"
+                value="0123456789012345" />
+            <div>
+                <input class="pago__date" name="fechaTarjeta" placeholder="MM/AA" type="text" value="12/20" />
+                <input class="pago__ccv" name="ccvTarjeta" placeholder="CCV" type="text" value="123" />
+            </div>
+            <h3 class="pago__texto">Información de envío</h3>
+            <div>
+                <input class="pago__nombre" name="nombrePago" type="text" placeholder="Nombre(s)" value="Juan">
+                <input class="pago__apellidos" name="apellidosPago" type="text" placeholder="Apellidos"
+                    value="Caguamas Perez">
+            </div>
+            <input class="pago__direccion" name="dirPago" type="text" placeholder="Dirección" value="calle d">
+            <div>
+                <input class="pago__codp" name="codPosPago" type="text" placeholder="Código postal" value="12345">
+                <input class="pago__tel" name="telPago" type="text" placeholder="Teléfono" value="8718181818">
+                <select class="pago__pais" name="pais">
+                    <option>México</option>
+                    <option>Estados Unidos de America</option>
+                    <option>Argentina</option>
+                    <option>Colombia</option>
+                    <option>España</option>
+                </select>
+            </div>
+            <input class="pago__submit" type="submit" value="Pagar" required>
+        </form>
+    </div>
+    </div>
+
+    <footer class="footer">
+        <p class="footer__texto"> Figuras MR Anime - Todos los derechos Reservados 2022</p>
+    </footer>
+</body>
+
+</html>
